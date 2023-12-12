@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 포트폴리오</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <h2>나의 활동</h2>
+
+    <section id="blog-section">
+        <!-- 블로그 활동이 여기에 동적으로 추가됩니다 -->
+    </section>
+
+    <a href="./write.html">활동 추가</a>
+
+      <input type='button'
+             value='deleteDiv'
+             onclick='deleteDiv()'/>
+
+    <script src="./index.js"></script>
+    <script>
+        // 로컬 스토리지에서 블로그를 불러와서 표시합니다
+        var existingBlogs = JSON.parse(localStorage.getItem('blogs'));
+        var blogSection = document.getElementById('blog-section');
+
+        function displayBlogs() {
+            // 블로그 섹션의 기존 내용을 지웁니다
+            blogSection.innerHTML = '';
+
+            // 각 블로그에 대한 div 요소를 만들고 추가합니다
+            existingBlogs.forEach(function(blog, index) {
+                var blogDiv = document.createElement('div');
+                blogDiv.classList.add('activitydiv');
+
+                // 제목과 내용을 div에 추가합니다
+                blogDiv.innerHTML = '<p class="titleblog-content">' + blog.title + '</p>' +
+                                    '<p class="textblog-content">' + blog.text + '</p>';
+
+                // div를 블로그 섹션에 추가합니다
+                blogSection.appendChild(blogDiv);
+            });
+        }
+        function deleteDiv() {
+        const div = document.getElementsByClassName('activitydiv');
+        div.remove();
+} 
+
+        // 초기에 블로그를 표시합니다
+        displayBlogs();
+    </script>
+</body>
+</html>
+

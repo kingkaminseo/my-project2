@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 작성</title>
+</head>
+<body>
+
+    <textarea id="blog-input-title" placeholder="제목을 작성하세요..."></textarea>
+    <textarea id="blog-input-text" placeholder="내용을 작성하세요..."></textarea>
+    <button onclick="saveBlog()">저장</button>
+    <a href="./blog.html">돌아가기</a>
+
+    <script>
+        function saveBlog() {
+            var titlecontent = document.getElementById('blog-input-title').value;
+            var textcontent = document.getElementById('blog-input-text').value;
+
+            // Check if there is an existing array in local storage
+            var existingBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+            // Add the new blog content to the array
+            existingBlogs.push({ title: titlecontent, text: textcontent });
+
+            // Save the updated array back to local storage
+            localStorage.setItem('blogs', JSON.stringify(existingBlogs));
+
+            // Clear input fields
+            document.getElementById('blog-input-title').value = '';
+            document.getElementById('blog-input-text').value = '';
+        }
+    </script>
+
+</body>
+</html>

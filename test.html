@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        /* 반응형 디자인 */
+        @media only screen and (max-width: 600px) {
+            /* 스몰 디바이스용 스타일 */
+            main {
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            /* 태블릿용 스타일 */
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+    <title>반응형 웹 페이지</title>
+</head>
+<body>
+
+    <header>
+        <h1>반응형 웹 페이지</h1>
+    </header>
+
+    <main>
+        <p>이 부분은 웹 페이지의 본문 내용입니다.</p>
+    </main>
+
+    <footer>
+        &copy; 2023 반응형 웹 페이지
+    </footer>
+
+</body>
+</html>
